@@ -4,6 +4,7 @@ from pages.cart_page import CartPage
 from pages.checkout_info_page import CheckoutInfoPage
 from pages.checkout_overview_page import CheckoutOverviewPage
 from pages.checkout_complete_page import CheckoutCompletePage
+from utils.data_reader import read_json
 
 def test_end_to_end_checkout(driver):
     # 1. Inisialisasi semua halaman
@@ -14,9 +15,11 @@ def test_end_to_end_checkout(driver):
     checkout_overview = CheckoutOverviewPage(driver)
     checkout_complete = CheckoutCompletePage(driver)
 
+    user = read_json("users.json")["valid_user"]
+
     # 2. Proses Login
     login_page.open()
-    login_page.login("standard_user", "secret_sauce")
+    login_page.login(user["username"], user["password"])
 
     # 3. Pilih Produk & Masuk Keranjang
     inventory.add_backpack_to_cart()

@@ -1,0 +1,10 @@
+{
+  "valid_user": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "empty_password_user": {
+    "username": "standard_user",
+    "password": ""
+  }
+}

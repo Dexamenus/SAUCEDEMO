@@ -1,5 +1,8 @@
 from selenium.webdriver.common.by import By
+
+from config.environment import BASE_URL
 from pages.base_page import BasePage
+
 
 class LoginPage(BasePage):
     USERNAME_INPUT = (By.ID, "user-name")
@@ -8,7 +11,7 @@ class LoginPage(BasePage):
     ERROR_MESSAGE = (By.CSS_SELECTOR, "[data-test='error']")
 
     def open(self):
-        self.driver.get("https://www.saucedemo.com/")
+        self.driver.get(BASE_URL)
 
     def login(self, username, password):
         self.enter_text(self.USERNAME_INPUT, username)
@@ -17,3 +20,6 @@ class LoginPage(BasePage):
         
     def get_error_message(self):
         return self.get_text(self.ERROR_MESSAGE) # Ditambahkan kembali
+
+    def is_login_form_displayed(self):
+        return self.is_visible(self.USERNAME_INPUT)
