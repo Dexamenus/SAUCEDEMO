@@ -19,4 +19,4 @@ def test_login_negative_empty_password(driver):
     login_page.login("standard_user", "")
     
     # Assertion: Memastikan error message yang muncul sesuai
-    assert "Password is required" in login_page.get_error_message()
+    assert login_page.get_error_message() == "Epic sadface: Password is required"

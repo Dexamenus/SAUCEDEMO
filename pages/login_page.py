@@ -2,10 +2,10 @@ from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
 class LoginPage(BasePage):
-    USERNAME_INPUT = (By.XPATH, "//input[@id='user-name']")
-    PASSWORD_INPUT = (By.XPATH, "//input[@id='password']")
-    LOGIN_BUTTON = (By.XPATH, "//input[@id='login-button']")
-    ERROR_MESSAGE = (By.XPATH, "//h3[@data-test='error']") # Ditambahkan kembali
+    USERNAME_INPUT = (By.ID, "user-name")
+    PASSWORD_INPUT = (By.ID, "password")
+    LOGIN_BUTTON = (By.ID, "login-button")
+    ERROR_MESSAGE = (By.CSS_SELECTOR, "[data-test='error']")
 
     def open(self):
         self.driver.get("https://www.saucedemo.com/")
